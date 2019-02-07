@@ -1,87 +1,72 @@
 package org.sid.entities;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.util.Collection;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
-@SuppressWarnings("serial")
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.Table;
+
+
 @Entity
+@Table(name="users")
 public class User implements Serializable {
-		@Id @GeneratedValue
-	private Long id;
-	private String nom;
-	private String prenom;
-	
-	@Temporal(TemporalType.DATE)
-	private Date dateNaissance;
-	private long tel;
-	private String email;
+	@Id
+	private String login;
 	private String mdp;
-	
-	
-	public User(String nom, String prenom, Date dateNaissance, String email, String mdp, long tel, String image) {
-		super();
-		this.nom = nom;
-		this.prenom = prenom;
-		this.dateNaissance = dateNaissance;
-		this.email = email;
-		this.mdp = mdp;
-		this.tel = tel;
-		
+	private boolean activated;
+	public boolean isActivated() {
+		return activated;
 	}
+
+	public void setActivated(boolean activated) {
+		this.activated = activated;
+	}
+
+	public User(boolean activated) {
+		super();
+		this.activated = activated;
+	}
+
+	@ManyToMany
+	@JoinTable(name="USERS_ROLES")
+	private Collection<Role>  roles;
+	
 	public User() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Long getId() {
-		return id;
+
+	public String getLogin() {
+		return login;
 	}
-	public void setId(Long id) {
-		this.id = id;
+
+	public void setLogin(String login) {
+		this.login = login;
 	}
-	public String getNom() {
-		return nom;
-	}
-	public void setNom(String nom) {
-		this.nom = nom;
-	}
-	public String getPrenom() {
-		return prenom;
-	}
-	public void setPrenom(String prenom) {
-		this.prenom = prenom;
-	}
-	public Date getDateNaissance() {
-		return dateNaissance;
-	}
-	public void setDateNaissance(Date dateNaissance) {
-		this.dateNaissance = dateNaissance;
-	}
-	public String getEmail() {
-		return email;
-	}
-	public void setEmail(String email) {
-		this.email = email;
-	}
+
 	public String getMdp() {
 		return mdp;
 	}
+
 	public void setMdp(String mdp) {
 		this.mdp = mdp;
 	}
-	public long getTel() {
-		return tel;
+
+	public Collection<Role> getRoles() {
+		return roles;
 	}
-	public void setTel(long tel) {
-		this.tel = tel;
+
+	public void setRoles(Collection<Role> roles) {
+		this.roles = roles;
 	}
-	
-	
-	
-	
+
+	public User(String login, String mdp) {
+		super();
+		this.login = login;
+		this.mdp = mdp;
+	}
 
 }
