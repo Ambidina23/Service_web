@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
+//import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 
@@ -17,6 +19,21 @@ public class User implements Serializable {
 	private String login;
 	private String mdp;
 	private boolean activated;
+	@OneToMany()
+	private Collection<Picture> pictures;
+	public User(Collection<Picture> pictures) {
+		super();
+		this.pictures = pictures;
+	}
+
+	public Collection<Picture> getPictures() {
+		return pictures;
+	}
+
+	public void setPictures(Collection<Picture> pictures) {
+		this.pictures = pictures;
+	}
+
 	public boolean isActivated() {
 		return activated;
 	}
