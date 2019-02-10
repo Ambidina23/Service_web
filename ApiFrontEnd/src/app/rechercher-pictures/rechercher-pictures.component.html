@@ -1,0 +1,15 @@
+
+<div class="container">
+   <div class="panel panel-primary">
+      <div class="panel panel-heading">Recherche des photos par mot clé  </div>
+        <div class="panel-bady">
+            <form #f="ngForm" (ngSubmit)="onSearch(f.value)">
+                <div class="form-group">
+                    <label>Mot clé</label>
+                    <input type="text" name="motCle" ngModel required>
+                    <button type="submit" class="btn btn-primary">Recherche</button>
+                  </div>
+          </form>
+      </div>
+  </div>
+</div>
