@@ -12,7 +12,7 @@ export class AfficherPicturesComponent implements OnInit {
   constructor(public http:Http) { }
 
   ngOnInit() {
-    this.http.get("http://localhost:8080/rechercherPictures?mc=an&page=3")
+    this.http.get("http://localhost:8080/pictures/1156")
     .map(resp=>resp.json())
     .subscribe(data=>{
       this.pagePictures=data;

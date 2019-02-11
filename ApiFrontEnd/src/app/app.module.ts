@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
+import { HttpClientModule} from '@angular/common/http';
 
 import { ImageService } from './image/shared/image.service';
 import { ImageFilterPipe } from './image/shared/filter.pipe';
@@ -17,6 +18,9 @@ import { GererPictureComponent } from './gerer-picture/gerer-picture.component';
 import { RechercherPicturesComponent } from './rechercher-pictures/rechercher-pictures.component';
 import { AjouterPictureComponent } from './ajouter-picture/ajouter-picture.component';
 import { AfficherPicturesComponent } from './afficher-pictures/afficher-pictures.component';
+import { ModifierPictureComponent } from './modifier-picture/modifier-picture.component';
+import { SupprimerPictureComponent } from './supprimer-picture/supprimer-picture.component';
+import { HttpClient } from 'selenium-webdriver/http';
 
 
 
@@ -32,6 +36,8 @@ import { AfficherPicturesComponent } from './afficher-pictures/afficher-pictures
       RechercherPicturesComponent,
       AjouterPictureComponent,
       AfficherPicturesComponent,
+      ModifierPictureComponent,
+      SupprimerPictureComponent,
      
  
   ],
@@ -39,6 +45,7 @@ import { AfficherPicturesComponent } from './afficher-pictures/afficher-pictures
     BrowserModule,
     FormsModule,
     HttpModule,
+    HttpClientModule,
     RouterModule.forRoot(appRoutes)
   ],
   providers: [ImageService, ImageFilterPipe],

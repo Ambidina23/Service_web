@@ -6,10 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./ajouter-picture.component.css']
 })
 export class AjouterPictureComponent implements OnInit {
-
+ onFileSelected(event){
+   console.log(event);
+ }
   constructor() { }
 
   ngOnInit() {
   }
 
 }
+
