@@ -18,7 +18,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @Secured(value=("ROLE_ADMIN"))
-
 public class UserRestService  {
 	@Autowired
 	private UserRepository userRepository;
@@ -46,14 +45,14 @@ public class UserRestService  {
 					}
 		//Pour supprimer un utilisateur
 		@Secured(value={"ROLE_ADMIN"})
-		@RequestMapping(value="/user/{id}", method=RequestMethod.DELETE)
+		@RequestMapping(value="/users/{id}", method=RequestMethod.DELETE)
 		public boolean deleteUser(@PathVariable String id){
 			userRepository.deleteById(id);
 			return true;
 		}
 		//Pour mettre à jour un utilisateur
 		@Secured(value={"ROLE_ADMIN"})
-		@RequestMapping(value="/user/{id}", method=RequestMethod.PUT)
+		@RequestMapping(value="/users/{id}", method=RequestMethod.PUT)
 		public User updateUser(@PathVariable String id, @RequestBody User u){
 				u.setLogin(id);
 				return userRepository.save(u);

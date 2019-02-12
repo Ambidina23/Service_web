@@ -25,11 +25,10 @@ public class ApiSharePicturesApplication implements CommandLineRunner{
 
 	@Override
 	public void run(String... args) throws Exception {
-		pictureRepository.save(new Picture("New work", "/apiShare2/src/main/resources/image/boat_01.jpeg", "c'etait parfait", "moussa"));
-		pictureRepository.save(new Picture("Vaccances", "/apiShare2/src/main/resources/image/boat_03.jpeg", "très drole","sema"));
-		pictureRepository.save(new Picture("Au taquet", "/apiShare2/src/main/resources/image/boat_04.jpeg", "merci mon cher","thomas"));
-		pictureRepository.save(new Picture("Alors", "/apiShare2/src/main/resources/image/camping_01.jpeg", "Tu viens ou pas?", "jennifer"));
-		
+		pictureRepository.save(new Picture("New work", "image.jpg", "c'etait parfait"));
+		pictureRepository.save(new Picture("Vaccances", "image2.jpg", "très drole"));
+		pictureRepository.save(new Picture("Au taquet", "image3.jpg", "merci mon cher"));
+		pictureRepository.save(new Picture("Alors", "image4.jpg", "Tu viens ou pas?"));
 		
 		pictureRepository.findAll().forEach(p->{
 			System.out.println(p.getTitre());
