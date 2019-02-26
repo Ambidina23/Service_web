@@ -14,5 +14,7 @@ export const appRoutes:Routes = [
   { path: "rechercher-pictures", component: RechercherPicturesComponent },
   { path: "ajouter-picture", component: AjouterPictureComponent },
   { path: "afficher-pictures", component: AfficherPicturesComponent },
+  
+
   { path: "", redirectTo: "/app", pathMatch: 'full' },
 ]
